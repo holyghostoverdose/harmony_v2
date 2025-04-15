@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for a movie...">
+            <div id="suggestions" class="suggestions"></div>
+        </div>
+    </div>
+
+    <!-- Movie Details Modal -->
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="movie-details">
+                <div class="movie-poster">
+                    <img id="modalPoster" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQ1MCIgdmlld0JveD0iMCAwIDMwMCA0NTAiIGZpbGw9IiMyMjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRleHQgeD0iMTUwIiB5PSIyMjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIiBmaWxsPSIjNjY2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiPk5vIEltYWdlPC90ZXh0Pjwvc3ZnPg==" alt="Movie Poster">
+                </div>
+                <div class="movie-info">
+                    <h2 id="movieTitle">Movie Title | Dir. <span id="movieDirector">Alan Smith</span></h2>
+                    <div class="movie-meta">
+                        <span id="movieType">Movie</span> | 
+                        <span id="movieRating">PG-13</span> | 
+                        <span id="releaseYear">Release year</span> | 
+                        <span id="duration">Duration</span> | 
+                        <span id="imdbRating">IMDB 8.1</span>
+                    </div>
+                    
+                    <div class="movie-section active" id="homeSection">
+                        <div class="star-rating" id="starRating">
+                            <div class="star-container" data-value="1">
+                                <span class="star-half left-half" data-value="0.5"></span>
+                                <span class="star-half right-half" data-value="1"></span>
+                            </div>
+                            <div class="star-container" data-value="2">
+                                <span class="star-half left-half" data-value="1.5"></span>
+                                <span class="star-half right-half" data-value="2"></span>
+                            </div>
+                            <div class="star-container" data-value="3">
+                                <span class="star-half left-half" data-value="2.5"></span>
+                                <span class="star-half right-half" data-value="3"></span>
+                            </div>
+                            <div class="star-container" data-value="4">
+                                <span class="star-half left-half" data-value="3.5"></span>
+                                <span class="star-half right-half" data-value="4"></span>
+                            </div>
+                            <div class="star-container" data-value="5">
+                                <span class="star-half left-half" data-value="4.5"></span>
+                                <span class="star-half right-half" data-value="5"></span>
+                            </div>
+                            <span class="rating-text"></span>
+                        </div>
+                        
+                        <p id="movieDescription" class="movie-description">
+                            Movie description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                        
+                        <div class="action-buttons">
+                            <button class="action-btn"><i class="fas fa-eye"></i></button>
+                            <button class="action-btn"><i class="fas fa-folder-plus"></i></button>
+                            <button class="action-btn"><i class="fas fa-ban"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Cast & Crew Section -->
+                    <div class="movie-section" id="castSection">
+                        <div class="scroll-buttons">
+                            <button class="scroll-arrow left-arrow" aria-label="Scroll left">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="scroll-arrow right-arrow" aria-label="Scroll right">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div id="castAndCrewContainer">
+                                <!-- Cast and crew cards will be dynamically added here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <div class="nav-tabs">
+                    <div class="nav-item active" data-section="home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </div>
+                    <div class="nav-item" data-section="cast">
+                        <i class="fas fa-users"></i>
+                        <span>Cast & Crew</span>
+                    </div>
+                    <div class="nav-item" data-section="reviews">
+                        <i class="fas fa-comments"></i>
+                        <span>Reviews</span>
+                    </div>
+                    <div class="nav-item" data-section="wiki">
+                        <i class="fas fa-book"></i>
+                        <span>Wiki</span>
+                    </div>
+                    <div class="nav-item" data-section="moreLike">
+                        <i class="fas fa-plus"></i>
+                        <span>More like this</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
